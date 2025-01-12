@@ -102,6 +102,63 @@ competitive-research-agent/
 └── README.md            # This file
 ```
 
+## Automating Execution
+
+To ensure the agent runs automatically on a schedule, you can set it up using either a cron job or systemd service.
+
+### Using Cron Job
+
+1. Open the crontab editor:
+```bash
+crontab -e
+```
+
+2. Add the following entry to run the agent every Monday at 8 AM:
+```bash
+0 8 * * 1 /path/to/venv/bin/python /path/to/competitive-research-agent/agent.py
+```
+
+3. Save and exit. The cron job will now run the script weekly.
+
+### Using Systemd Service
+
+1. Create a new service file:
+```bash
+sudo nano /etc/systemd/system/competitive-research-agent.service
+```
+
+2. Add the following content:
+```ini
+[Unit]
+Description=Competitive Research AI Agent
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/path/to/venv/bin/python /path/to/competitive-research-agent/agent.py
+WorkingDirectory=/path/to/competitive-research-agent
+Restart=on-failure
+User=your-username
+
+[Install]
+WantedBy=multi-user.target
+```
+
+3. Save and exit the file.
+
+4. Enable and start the service:
+```bash
+sudo systemctl enable competitive-research-agent.service
+sudo systemctl start competitive-research-agent.service
+```
+
+5. Check the status to confirm it’s running:
+```bash
+sudo systemctl status competitive-research-agent.service
+```
+
+The agent will now automatically execute based on the systemd configuration.
+
 ## Advanced Usage
 
 ### Adding New Competitors
