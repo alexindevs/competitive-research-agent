@@ -34,12 +34,12 @@ class CompetitorDatabase:
     def __init__(self, storage_dir: str = "competitor_data"):
         self.storage_dir = storage_dir
         self.llm = Ollama(
-            model="ada-llama3x1_8b", 
+            model="your-model",
             base_url="http://localhost:11434",
             request_timeout=60.0
         )
         self.embed_model = OllamaEmbedding(
-            model_name="ada-llama3x1_8b",
+            model_name="your-model",
             base_url="http://localhost:11434",
             ollama_additional_kwargs={"mirostat": 0}
         )
