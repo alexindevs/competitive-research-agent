@@ -1,7 +1,5 @@
-import requests
 import json
-from datetime import datetime, timedelta
-import pandas as pd
+from datetime import datetime
 from typing import List, Dict, Any
 import os
 import logging
@@ -11,7 +9,6 @@ import asyncio
 from bs4 import BeautifulSoup
 from llama_index.core import (
     VectorStoreIndex,
-    SimpleDirectoryReader,
     Document,
     StorageContext,
     load_index_from_storage,

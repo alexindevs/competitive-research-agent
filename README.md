@@ -35,7 +35,7 @@ source venv/bin/activate  # On Linux/Mac
 
 3. Install required packages:
 ```bash
-pip install llama-index-core llama-index-llms-ollama requests pandas aiohttp beautifulsoup4 llama-index-embeddings-ollama
+pip install llama-index-core llama-index-llms-ollama pandas aiohttp beautifulsoup4 llama-index-embeddings-ollama
 ```
 
 ## Configuration
